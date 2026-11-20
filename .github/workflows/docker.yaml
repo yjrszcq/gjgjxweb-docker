@@ -110,9 +110,9 @@ jobs:
           container=$(docker run --detach --publish 127.0.0.1::8080 gjgjxweb:smoke)
           trap 'docker rm -f "$container" >/dev/null' EXIT
           url="http://$(docker port "$container" 8080/tcp)"
-          curl --fail --silent --show-error --retry 5 --retry-connrefused --output /dev/null "$url/"
-          mime=$(curl --fail --silent --show-error --output /dev/null --write-out '%{content_type}' "$url/js/app.js")
-          [[ "$mime" == application/javascript* ]]
+          mime=$(curl --fail --silent --show-error --retry 5 --retry-connrefused --output /dev/null --write-out '%{content_type}' "$url/")
+          [[ "$mime" == text/html* ]]
+          curl --fail --silent --show-error --output /dev/null "$url/assets/favicon.ico"
       - name: Build and push multi-platform image
         if: steps.registry.outputs.skip != 'true'
         uses: docker/build-push-action@v7

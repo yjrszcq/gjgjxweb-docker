@@ -13,8 +13,8 @@ RUN set -eu; \
     mkdir /tmp/upstream /site; \
     tar -xzf /tmp/upstream.tar.gz --strip-components=1 -C /tmp/upstream; \
     cd /tmp/upstream; \
-    test -s index.html; \
-    cp -R index.html css js assets LICENSE LICENSE-Tango.txt LICENSE-xterm.txt /site/
+    test -s docs/index.html; \
+    cp -R docs/index.html docs/assets LICENSE LICENSE-Tango.txt LICENSE-xterm.txt /site/
 
 FROM ${NGINX_IMAGE}
 ARG GJGJXWEB_COMMIT

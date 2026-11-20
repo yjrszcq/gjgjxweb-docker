@@ -1,6 +1,6 @@
 # gjgjxweb Docker
 
-[搞机工具箱 Web](https://github.com/CzJam/gjgjxweb) 的非官方 Docker 打包仓库。这里不存放上游源码；构建时从 GitHub 下载指定提交，以非 root Nginx 提供静态页面。镜像保留上游及第三方许可证，无需 Node.js、ADB 后端或容器 USB 设备映射。
+[搞机工具箱 Web](https://github.com/CzJam/gjgjxweb) 的非官方 Docker 打包仓库。仓库不存放上游源码；镜像构建时下载指定提交，使用与[官方在线版](https://czjam.github.io/gjgjxweb/)相同的 `docs/index.html` 整合版，由非 root Nginx 提供服务。镜像保留上游及第三方许可证，无需 Node.js、ADB 后端或容器 USB 设备映射。
 
 ## 快速开始
 
