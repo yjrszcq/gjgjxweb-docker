@@ -4,7 +4,7 @@
 
 ## 快速开始
 
-直接运行 [Docker Hub 上的镜像](https://hub.docker.com/r/szcq/gjgjxweb)，无需克隆仓库：
+直接运行以下命令：
 
 ```bash
 docker run -d --name gjgjxweb --restart unless-stopped \
