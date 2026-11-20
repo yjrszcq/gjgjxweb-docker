@@ -8,10 +8,10 @@
 
 ```bash
 docker run -d --name gjgjxweb --restart unless-stopped \
-  -p 127.0.0.1:8124:8080 szcq/gjgjxweb:latest
+  -p 8124:8080 szcq/gjgjxweb:latest
 ```
 
-在 Chrome、Edge 或其他支持 WebUSB 的 Chromium 浏览器中打开 <http://127.0.0.1:8124>。手机 USB 数据线应接到**运行浏览器的电脑**，而非部署容器的服务器。远程访问时，请用 HTTPS 反向代理转发到服务端的 `127.0.0.1:8124`；普通局域网 HTTP 不满足 WebUSB 的安全上下文要求。
+本机用 Chrome 或 Edge 打开 <http://localhost:8124>。远程使用 WebUSB 时，需通过 HTTPS 访问。手机 USB 数据线接到运行浏览器的电脑。
 
 ## 使用 Docker Compose
 
@@ -26,7 +26,7 @@ docker compose up -d
 
 ```bash
 docker build -t gjgjxweb:local .
-docker run --rm -p 127.0.0.1:8124:8080 gjgjxweb:local
+docker run --rm -p 8124:8080 gjgjxweb:local
 ```
 
 无需克隆上游。`Dockerfile` 默认固定一个已验证的上游提交。要构建其他提交，通过 `--build-arg GJGJXWEB_COMMIT=<完整提交 SHA>` 覆盖。镜像标签 `io.gjgjxweb.upstream.commit` 记录对应提交，`org.opencontainers.image.url` 指向该提交的上游源码。

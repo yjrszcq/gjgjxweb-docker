@@ -2,5 +2,5 @@ services:
   gjgjxweb:
     image: szcq/gjgjxweb:latest
     ports:
-      - "127.0.0.1:8124:8080"
+      - "8124:8080"
     restart: unless-stopped
