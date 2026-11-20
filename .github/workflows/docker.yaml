@@ -53,6 +53,7 @@ jobs:
             echo 'tags<<EOF'
             echo "${IMAGE_OWNER}/${IMAGE_NAME}:sha-${revision}"
             if [[ "$VERSION" == latest ]]; then
+              echo "${IMAGE_OWNER}/${IMAGE_NAME}:1.0.0"
               echo "${IMAGE_OWNER}/${IMAGE_NAME}:latest"
             fi
             echo 'EOF'
