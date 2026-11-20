@@ -2,16 +2,25 @@
 
 [搞机工具箱 Web](https://github.com/CzJam/gjgjxweb) 的非官方 Docker 打包仓库。这里不存放上游源码；构建时从 GitHub 下载指定提交，以非 root Nginx 提供静态页面。镜像保留上游及第三方许可证，无需 Node.js、ADB 后端或容器 USB 设备映射。
 
-## 运行镜像
+## 快速开始
 
-Docker Hub 发布后，可用仓库中的 `docker-compose.yaml` 启动：
+直接运行 [Docker Hub 上的镜像](https://hub.docker.com/r/szcq/gjgjxweb)，无需克隆仓库：
+
+```bash
+docker run -d --name gjgjxweb --restart unless-stopped \
+  -p 127.0.0.1:8124:8080 szcq/gjgjxweb:latest
+```
+
+在 Chrome、Edge 或其他支持 WebUSB 的 Chromium 浏览器中打开 <http://127.0.0.1:8124>。手机 USB 数据线应接到**运行浏览器的电脑**，而非部署容器的服务器。远程访问时，请用 HTTPS 反向代理转发到服务端的 `127.0.0.1:8124`；普通局域网 HTTP 不满足 WebUSB 的安全上下文要求。
+
+## 使用 Docker Compose
+
+在包含 `docker-compose.yaml` 的目录运行（与上面的 `docker run` 二选一）：
 
 ```bash
 docker compose pull
 docker compose up -d
 ```
-
-在 Chrome、Edge 或其他支持 WebUSB 的 Chromium 浏览器中打开 <http://127.0.0.1:8124>。手机 USB 数据线应接到**运行浏览器的电脑**，而非部署容器的服务器。远程访问时，请用 HTTPS 反向代理转发到服务端的 `127.0.0.1:8124`；普通局域网 HTTP 不满足 WebUSB 的安全上下文要求。
 
 ## 本地构建
 
