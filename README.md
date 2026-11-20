@@ -36,3 +36,7 @@ docker run --rm -p 127.0.0.1:8124:8080 gjgjxweb:local
 - 默认推送到 Docker Hub 的 `szcq/gjgjxweb`，支持 `linux/amd64` 和 `linux/arm64`。首次发布前，在 GitHub 仓库配置拥有目标 Docker Hub 仓库写权限的 `DOCKER_TOKEN`，然后在默认分支手动运行 **Build and Push Docker Image**，保留输入 `latest`。Fork 使用自己的 Docker Hub 命名空间时，修改 `docker.yaml` 的 `IMAGE_OWNER` 和 Compose 的镜像地址。
 - 输入 `latest` 构建上游默认分支当前提交，发布 `latest` 和 `sha-<完整提交 SHA>`；手动输入完整 SHA 只发布对应 `sha-` 标签，不覆盖 `latest`。
 - **Auto Update gjgjxweb** 每日 19:00 UTC 检查一次上游，也可手动运行。若 `latest` 已指向上游当前提交对应的镜像，则跳过构建；打包配置变更后，可手动运行 **Build and Push Docker Image** 重新发布。
+
+## 开源协议
+
+[GPL-3.0-only](LICENSE)
