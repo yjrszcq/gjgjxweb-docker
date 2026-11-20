@@ -7,8 +7,7 @@
 直接运行以下命令：
 
 ```bash
-docker run -d --name gjgjxweb --restart unless-stopped \
-  -p 8124:8080 szcq/gjgjxweb:latest
+docker run -d --name gjgjxweb --restart unless-stopped -p 8124:8080 szcq/gjgjxweb:latest
 ```
 
 本机用 Chrome 或 Edge 打开 <http://localhost:8124>。远程使用 WebUSB 时，需通过 HTTPS 访问。手机 USB 数据线接到运行浏览器的电脑。
