@@ -1,0 +1,17 @@
+name: Auto Update gjgjxweb
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "0 19 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    uses: ./.github/workflows/docker.yaml
+    with:
+      skip_existing: true
+    secrets:
+      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
